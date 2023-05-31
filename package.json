@@ -28,6 +28,7 @@
 	"type": "module",
 	"dependencies": {
 		"pocketbase": "^0.15.0",
-		"svelte-icons": "^2.1.0"
+		"svelte-icons": "^2.1.0",
+		"svelte-time": "^0.7.1"
 	}
 }

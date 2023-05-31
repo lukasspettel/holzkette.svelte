@@ -8,7 +8,11 @@ export const load = async () => {
 		sort: 'created',
 		expand: 'partners'
 	})
+		const reports = await pb.collection('reports').getFullList({
+		sort: 'created',
+	})
 	return {
-		projects
+		projects,
+		reports
 	}
 }

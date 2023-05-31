@@ -3,6 +3,7 @@
 	export let data;
 	import { getImageURL } from '$lib/utils/getURL';
 	import { Lightbox } from 'svelte-lightbox';
+	import Time from 'svelte-time';
 </script>
 
 <container>
@@ -54,11 +55,24 @@
 					{/each}
 				</flex>
 			{/if}
+			{#if project.slug === 'berichte'}
+				{#if data.reports}
+					<flex>
+						{#each data.reports as report}<a
+								href={`${getImageURL(report.collectionId, report.id, report)}`}
+								><div>{report.name}</div>
+								<div><Time timestamp={report.date} format="MMMM YYYY" /></div></a
+							>{/each}
+					</flex>{/if}
+			{/if}
 		{/if}
 	{/each}
 </container>
 
 <style>
+	container {
+		gap: 2rem;
+	}
 	flex {
 		display: flex;
 		justify-content: space-between;
@@ -76,6 +90,10 @@
 		align-items: center;
 		object-fit: cover;
 		width: 100%;
+	}
+
+	li {
+		list-style-type: none;
 	}
 
 	a {
